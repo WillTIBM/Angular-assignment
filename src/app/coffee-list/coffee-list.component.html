@@ -1,24 +1,12 @@
 <p>coffee-list works!</p>
-<!-- <div href="#"
- *ngFor="let coffeeItems of coffeeArray">
-    <div>
-        <h4>{{coffeeItems.name}}</h4>
-    </div>
-</div>
-
-<div href="#"
- *ngFor="let testItems of testArray">
-    <div>
-        <h4>{{testItems.arrayNumber}}</h4>
-    </div>
-</div> -->
-
 <ul>
-    <li *ngFor="let item of coffeeItems | paginate: { itemsPerPage: count, currentPage: page }">
-      <h3>{{ item.blend_name }}</h3>
+    <li *ngFor="let item of coffeeList">
+        <!-- <li *ngFor="let item of coffeeItems$ | paginate: { itemsPerPage: count, currentPage: page }"> -->
+      <!-- <h3>{{ item.blend_name }}</h3>
       <p>{{ item.origin }}</p>
       <p>{{ item.roast }}</p>
-      <p>{{ item.notes }}</p>
+      <p>{{ item.notes }}</p> -->
+      <p>{{item}}</p>
     </li>
   </ul>
   <div class="text-right">
