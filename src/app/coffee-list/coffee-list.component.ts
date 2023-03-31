@@ -4,6 +4,7 @@ import { CoffeeService } from '../coffee.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { createFeatureSelector, createSelector, select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { getCoffeeListFromApi } from '../app.actions';
 
 @Component({
   selector: 'app-coffee-list',
@@ -22,8 +23,12 @@ export class CoffeeListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.store.dispatch(getCoffeeListFromApi());
     this.coffeeService.getCoffees(50).subscribe((coffees) => {
       // this.coffeeItems = coffees;
+      // console.log(coffees);
+
       
     }); 
     this.coffeeItems$.subscribe((coffees)=>{
