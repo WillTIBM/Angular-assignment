@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { CoffeeService } from '../coffee.service';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -27,7 +26,7 @@ export class CoffeeListComponent implements OnInit {
     this.store.dispatch(getCoffeeListFromApi());
     this.coffeeService.getCoffees(50).subscribe((coffees) => {
       // this.coffeeItems = coffees;
-      // console.log(coffees);
+      //  console.log(coffees);
 
       
     }); 
