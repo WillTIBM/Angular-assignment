@@ -1,3 +1,6 @@
-#footer{
-    /* text-align: right; */
+
+.w3-container{
+    position:fixed;
+    bottom:0px;
+    width: 100%;
 }

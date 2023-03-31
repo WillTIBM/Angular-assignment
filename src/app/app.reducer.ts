@@ -4,7 +4,7 @@ import { createReducer, on, Action } from '@ngrx/store';
 import { coffeeSuccess, getCoffeeListFromApi } from './app.actions';
 
 
-export const initialState = {coffeeItems:[],isLoading:false,isLoadingSuccess:false,isLoadingFailure:false};
+export const initialState = {coffeeItems:[{}],isLoading:false,isLoadingSuccess:false,isLoadingFailure:false};
 //Creates a reducer function to handle state transitions.
 //Reducer creators reduce the explicitness of reducer functions with switch statements.
 export const coffeeReducer = createReducer(
@@ -13,7 +13,7 @@ export const coffeeReducer = createReducer(
   on(coffeeSuccess, (state,response) => {return({...state,coffeeItems:response,isLoading:false,IsLoadingSuccess:true})})
 );
 export const populateList = (state:CoffeeState) => {return {coffeeItems:state.coffeeItems,isLoading:state.isLoading, isLoadingSuccess:state.isLoadingSuccess}};
-//export function reducer(state:CoffeeState,action:Action):any{return coffeeReducer(state,action)}
+export function reducer(state:CoffeeState,action:Action){return coffeeReducer(state,action)}
 export interface CoffeeState{
   coffeeItems: Array<CoffeeItems>;
   isLoading:boolean;

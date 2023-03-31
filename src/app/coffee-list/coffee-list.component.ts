@@ -33,7 +33,7 @@ export class CoffeeListComponent implements OnInit {
     }); 
     this.coffeeItems$.subscribe((coffees)=>{
       this.coffeeList = coffees;
-      console.log(coffees)
+      console.log(this.coffeeList)
     })
   }
   getListState = createFeatureSelector<{coffeeItems:Array<any>}>("coffeeReducer");
