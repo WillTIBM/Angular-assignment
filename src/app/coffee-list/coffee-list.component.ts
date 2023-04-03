@@ -14,7 +14,6 @@ import { getList } from '../app.selector';
 export class CoffeeListComponent implements OnInit {
   coffeeItems$: Observable<any[]>;
   coffeeList: any[] = [];
-  // Pagination parameters.
   page: number = 1;
   count: number = 10;
   subscription: Subscription = new Subscription();
@@ -26,10 +25,6 @@ export class CoffeeListComponent implements OnInit {
   ngOnInit(): void {
     this.coffeeItems$ = this.store.pipe(select(getList));
     this.store.dispatch(getCoffeeListFromApi());
-    // this.coffeeService.getCoffees(50).subscribe((coffees) => {
-    //   // this.coffeeItems = coffees;
-    //   //  console.log(coffees);
-    // }); 
     this.subscription = this.coffeeItems$.subscribe(
       (coffees) => {
         console.log(coffees)
