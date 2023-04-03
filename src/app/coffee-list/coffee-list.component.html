@@ -3,14 +3,13 @@
 </div>
 <ul class="cards">
     <!-- <li *ngFor="let item of coffeeList " class="card"> -->
-        <div *ngFor="let item of coffeeList | paginate: { itemsPerPage: count, currentPage: page } " >
-      <li><h5>Blend: {{ item.blend_name }}.</h5></li>
-      <li>Origin: {{ item.origin }}.</li>
-      <li>Intensity: {{ item.intensifier }}.</li>
-      <li>Notes: {{ item.notes }}.</li>
-      <li>Variety: {{item.variety}}.</li>
-      <!-- <p>{{item}}</p> -->
-        </div>
+    <div *ngFor="let item of coffeeList | paginate: { itemsPerPage: count, currentPage: page }" class="card">
+      <div>&bull; Blend: {{ item.blend_name }}.</div>
+      <div>&bull; Origin: {{ item.origin }}.</div>
+      <div>&bull; Intensity: {{ item.intensifier }}.</div>
+      <div>&bull; Notes: {{ item.notes }}.</div>
+      <div>&bull; Variety: {{item.variety}}.</div>
+    </div>
   </ul>
   <div class="text-right">
     <pagination-controls (pageChange)="page = $event"></pagination-controls>

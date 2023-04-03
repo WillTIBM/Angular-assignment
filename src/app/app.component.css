@@ -4,6 +4,7 @@
     left: -50%; 
     width: 200%; 
     height: 200%;
+    Z-index: -5000;
   }
   .img {
     background-image: url("~src/assets/CoffeeCup.png");
