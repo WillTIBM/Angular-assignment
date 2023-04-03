@@ -4,7 +4,7 @@
 <ul class="cards">
     <!-- <li *ngFor="let item of coffeeList " class="card"> -->
     <div *ngFor="let item of coffeeList | paginate: { itemsPerPage: count, currentPage: page }" class="card">
-      <div>&bull; Blend: {{ item.blend_name }}.</div>
+      <h3>&#9749;{{ item.blend_name }}</h3>
       <div>&bull; Origin: {{ item.origin }}.</div>
       <div>&bull; Intensity: {{ item.intensifier }}.</div>
       <div>&bull; Notes: {{ item.notes }}.</div>

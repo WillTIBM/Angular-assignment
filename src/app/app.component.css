@@ -21,3 +21,18 @@
     min-height: 50%;
     opacity: 0.5;
   }
+
+  @media screen and (max-width: 1000px){
+    .bg{
+      /* position: fixed;  */
+      top: -50%; 
+      left: -50%; 
+      width: 200%; 
+      height: 200%;
+      Z-index: -5000;
+    }
+    .img {
+      background: none;
+      background-image: url("~src/assets/CoffeeCup.png");
+    }
+  }
