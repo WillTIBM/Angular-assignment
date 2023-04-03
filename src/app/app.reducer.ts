@@ -10,7 +10,7 @@ export const initialState = {coffeeItems:[{}],isLoading:false,isLoadingSuccess:f
 export const coffeeReducer = createReducer(
   initialState,
   on(getCoffeeListFromApi, (state) => ({...state,isLoading:true})),
-  on(coffeeSuccess, (state,response) => {return({...state,coffeeItems:response,isLoading:false,IsLoadingSuccess:true})})
+  on(coffeeSuccess, (state,response) => {return({...state,coffeeItems:response.list,isLoading:false,IsLoadingSuccess:true})})
 );
 export const populateList = (state:CoffeeState) => {return {coffeeItems:state.coffeeItems,isLoading:state.isLoading, isLoadingSuccess:state.isLoadingSuccess}};
 export function reducer(state:CoffeeState,action:Action){return coffeeReducer(state,action)}

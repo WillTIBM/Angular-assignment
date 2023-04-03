@@ -1,12 +1,16 @@
+<div class="text-right">
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
 <ul class="cards">
-    <li *ngFor="let item of coffeeList " class="card">
-        <!-- <li *ngFor="let item of coffeeItems$ | paginate: { itemsPerPage: count, currentPage: page }"> -->
-      <!-- <h3>{{ item.blend_name }}</h3>
-      <p>{{ item.origin }}</p>
-      <p>{{ item.roast }}</p>
-      <p>{{ item.notes }}</p> -->
-      <p>{{item}}</p>
-    </li>
+    <!-- <li *ngFor="let item of coffeeList " class="card"> -->
+        <div *ngFor="let item of coffeeList | paginate: { itemsPerPage: count, currentPage: page } " >
+      <li><h5>Blend: {{ item.blend_name }}.</h5></li>
+      <li>Origin: {{ item.origin }}.</li>
+      <li>Intensity: {{ item.intensifier }}.</li>
+      <li>Notes: {{ item.notes }}.</li>
+      <li>Variety: {{item.variety}}.</li>
+      <!-- <p>{{item}}</p> -->
+        </div>
   </ul>
   <div class="text-right">
     <pagination-controls (pageChange)="page = $event"></pagination-controls>

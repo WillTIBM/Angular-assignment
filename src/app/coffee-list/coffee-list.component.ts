@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CoffeeService } from '../coffee.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { createFeatureSelector, createSelector, select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable,Subscription } from 'rxjs';
 import { getCoffeeListFromApi } from '../app.actions';
+import { getList } from '../app.selector';
 
 @Component({
   selector: 'app-coffee-list',
@@ -16,24 +17,24 @@ export class CoffeeListComponent implements OnInit {
   // Pagination parameters.
   page: number = 1;
   count: number = 10;
+  subscription: Subscription = new Subscription();
 
   constructor(private coffeeService: CoffeeService, private store: Store<{coffeeReducer:{coffeeItems:any[]}}>) {
     this.coffeeItems$ = this.store.pipe(select(this.getList))
   }
 
   ngOnInit(): void {
-
+    this.coffeeItems$ = this.store.pipe(select(getList));
     this.store.dispatch(getCoffeeListFromApi());
-    this.coffeeService.getCoffees(50).subscribe((coffees) => {
-      // this.coffeeItems = coffees;
-      //  console.log(coffees);
-
-      
-    }); 
-    this.coffeeItems$.subscribe((coffees)=>{
-      this.coffeeList = coffees;
-      console.log(this.coffeeList)
-    })
+    // this.coffeeService.getCoffees(50).subscribe((coffees) => {
+    //   // this.coffeeItems = coffees;
+    //   //  console.log(coffees);
+    // }); 
+    this.subscription = this.coffeeItems$.subscribe(
+      (coffees) => {
+        console.log(coffees)
+        this.coffeeList = coffees;
+      })
   }
   getListState = createFeatureSelector<{coffeeItems:Array<any>}>("coffeeReducer");
   getList = createSelector(this.getListState, (state: {coffeeItems:Array<any>}) => {

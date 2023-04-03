@@ -17,7 +17,7 @@ export class CoffeeEffects {
       exhaustMap(action =>
         this.dataService.getCoffees(50).pipe(
           map(response => {
-            return actions.coffeeSuccess(response)}),
+            return actions.coffeeSuccess({list:response})}),
           catchError((error: any) => of(actions.coffeeFailure())))
       )
     )

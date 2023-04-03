@@ -12,6 +12,7 @@ import { coffeeReducer } from './app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { HeaderComponent } from './header/header.component';
+import { CoffeeEffects } from './app.effects';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { HeaderComponent } from './header/header.component';
     NgxPaginationModule,
     StoreModule.forRoot({ coffeeReducer}),
     StoreDevtoolsModule.instrument({ name:"Coffee Lib", maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([CoffeeEffects]),
 
   ],
   providers: [],
